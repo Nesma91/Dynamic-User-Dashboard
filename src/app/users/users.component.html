@@ -1,0 +1,11 @@
+<div class="fixed-grid has-3-cols mt-4">
+  <div class="grid">
+    <div class="cell" *ngFor="let user of users">
+      <app-user-item [item]="user"></app-user-item>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top: 1rem; width: 50%; margin-left: 20rem">
+  <app-paginator></app-paginator>
+</div>

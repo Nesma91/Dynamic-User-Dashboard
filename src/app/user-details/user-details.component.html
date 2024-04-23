@@ -1,0 +1,25 @@
+<article class="message is-warning container is-max-desktop mt-6">
+  <div class="message-header">
+    <p class="title">
+      {{ user?.data?.first_name }} {{ user?.data?.last_name }}
+    </p>
+  </div>
+  <div class="message-body">
+    <div class="fixed-grid has-2-cols">
+      <img [src]="user?.data?.avatar" style="object-fit: fill" />
+      <div class="grid">
+        <div class="cell">
+          <p class="subtitle">{{ user?.data?.email }}</p>
+        </div>
+
+        <div class="cell is-col-span-2">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae,
+            omnis laboriosam. Esse, soluta delectus vero alias magni nesciunt
+            obcaecati facilis earum voluptatibus ab aut distinctio.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

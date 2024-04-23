@@ -1,0 +1,27 @@
+<div class="slider">
+  <ng-container *ngFor="let item of items; let i = index">
+    <div
+      class="slide box container is-fullhd"
+      *ngIf="i == currentSlideIndex"
+      @slideFade
+    >
+      <div class="card-image">
+        <img
+          [src]="item.avatar"
+          alt="Placeholder image"
+          class="card-bg-image"
+        />
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-4 name">
+              {{ item.id }} - {{ item.first_name }} {{ item.last_name }}
+            </p>
+            <p class="subtitle is-6 email">{{ item.email }}{{ i + 1 }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

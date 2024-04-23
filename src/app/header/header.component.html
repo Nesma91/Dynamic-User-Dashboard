@@ -1,0 +1,30 @@
+<nav
+  class="navbar container is-fullhd"
+  style="height: 80px"
+  role="navigation"
+  aria-label="main navigation"
+>
+  <div
+    id="navbarBasicExample"
+    class="navbar-menu box"
+    style="background-color: black"
+  >
+    <div class="columns navbar-start">
+      <div class="title is-3">
+        <button routerLink="/" class="navbar-item" style="color: #c1ac92">
+          User Dashboard
+        </button>
+      </div>
+      <div class="subtitle is-3">
+        <button routerLink="/users" class="navbar-item" style="color: #935f1c">
+          Users
+        </button>
+      </div>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item has-text-grey-light">
+        <app-search-users></app-search-users>
+      </div>
+    </div>
+  </div>
+</nav>

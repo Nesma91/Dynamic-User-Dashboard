@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48">
+          <img [src]="item.avatar" alt="Placeholder image" />
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4">
+          {{ item.id }} - {{ item.first_name }} {{ item.last_name }}
+        </p>
+        <p class="subtitle is-6">{{ item.email }}</p>
+      </div>
+    </div>
+
+    <footer class="card-footer">
+      <button
+        routerLink="/users/details/{{ item.id }}"
+        class="card-footer-item button is-success"
+      >
+        Details
+      </button>
+      <button
+        routerLink="/"
+        class="card-footer-item button is-primary is-outlined"
+      >
+        Back To List
+      </button>
+    </footer>
+  </div>
+</div>
