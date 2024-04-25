@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "bulma/css/bulma.css";
-@import "~primeicons/primeicons.css";
-@import "~primeng/resources/themes/arya-green/theme.css";
-@import "~primeng/resources/primeng.min.css";
+@import "primeicons/primeicons.css";
+@import "primeng/resources/themes/arya-green/theme.css";
+@import "primeng/resources/primeng.min.css";
 
 html,
 body {
