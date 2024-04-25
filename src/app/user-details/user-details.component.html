@@ -1,25 +1,42 @@
-<article class="message is-warning container is-max-desktop mt-6">
-  <div class="message-header">
-    <p class="title">
-      {{ user?.data?.first_name }} {{ user?.data?.last_name }}
-    </p>
-  </div>
-  <div class="message-body">
-    <div class="fixed-grid has-2-cols">
-      <img [src]="user?.data?.avatar" style="object-fit: fill" />
-      <div class="grid">
-        <div class="cell">
-          <p class="subtitle">{{ user?.data?.email }}</p>
-        </div>
+<ng-container *ngIf="show; else spinner">
+  <article class="message is-warning container is-max-desktop mt-6">
+    <div class="message-header">
+      <p class="title">
+        {{ user?.data?.first_name }} {{ user?.data?.last_name }}
+      </p>
+      <div>
+        <a style="text-decoration: none; color: black" routerLink="/users"
+          >Back To Users List</a
+        >
+      </div>
+    </div>
+    <div class="message-body">
+      <div class="fixed-grid has-2-cols">
+        <img [src]="user?.data?.avatar" style="object-fit: fill" />
+        <div class="grid">
+          <div class="cell">
+            <p class="subtitle">{{ user?.data?.email }}</p>
+          </div>
 
-        <div class="cell is-col-span-2">
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae,
-            omnis laboriosam. Esse, soluta delectus vero alias magni nesciunt
-            obcaecati facilis earum voluptatibus ab aut distinctio.
-          </p>
+          <div class="cell is-col-span-2">
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae,
+              omnis laboriosam. Esse, soluta delectus vero alias magni nesciunt
+              obcaecati facilis earum voluptatibus ab aut distinctio.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</article>
+  </article>
+</ng-container>
+
+<ng-template #spinner>
+  <p-progressSpinner
+    [style]="{ width: '150px', height: '150px', display: 'block' }"
+    styleClass="custom-spinner"
+    strokeWidth="8"
+    fill="var(--surface-ground)"
+    animationDuration=".5s"
+  ></p-progressSpinner>
+</ng-template>

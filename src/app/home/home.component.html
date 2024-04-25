@@ -1,9 +1,47 @@
-<div style="margin-top: 1rem; width: 50%; margin-left: 20rem">
-  <app-paginator></app-paginator>
-</div>
-<div style="margin-left: 11rem; margin-top: 1rem">
-  <app-slider [items]="users"></app-slider>
-</div>
+<ng-container *ngIf="show; else spinner">
+  <p-carousel
+    [value]="users"
+    styleClass="custom-carousel"
+    [numVisible]="3"
+    [numScroll]="1"
+    [circular]="true"
+    [autoplayInterval]="3000"
+    [responsiveOptions]="responsiveOptions"
+  >
+    <ng-template let-user pTemplate="user">
+      <div class="user-item">
+        <div class="user-item-content">
+          <div class="mb-3">
+            <img [src]="user.avatar" class="user-image" />
+          </div>
+          <div>
+            <h5>User ID: {{ user.id }}</h5>
+            <h1 class="mb-1">{{ user.first_name }} {{ user.last_name }}</h1>
+            <h4 class="mt-0 mb-3">{{ user.email }}</h4>
+            <div class="car-buttons mt-5">
+              <p-button
+                routerLink="/users/details/{{ user.id }}"
+                type="button"
+                styleClass="p-button-outlined p-button-rounded p-button-warning mr-2"
+                >Details</p-button
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</ng-container>
+
+<ng-template #spinner>
+  <p-progressSpinner
+    [style]="{ width: '150px', height: '150px', display: 'block' }"
+    styleClass="custom-spinner"
+    strokeWidth="8"
+    fill="var(--surface-ground)"
+    animationDuration=".5s"
+  ></p-progressSpinner>
+</ng-template>
 
 <!-- <pre>
   {{ users | json }}

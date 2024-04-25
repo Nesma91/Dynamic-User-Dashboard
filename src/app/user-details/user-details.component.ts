@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { User, UserData } from '../models/user';
+import { UserData } from '../models/user';
 import { ActivatedRoute } from '@angular/router';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-user-details',
@@ -10,12 +11,20 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserDetailsComponent implements OnInit {
   user: UserData | null = null;
+
+  show: boolean = false;
+
   constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(({ id }) => {
-      this.getUser(id);
-    });
+    setTimeout(() => {
+      /** spinner ends after 500 ms */
+      this.show = true;
+
+      this.route.params.pipe(first()).subscribe(({ id }) => {
+        this.getUser(id);
+      });
+    }, 500);
   }
 
   getUser(id: number) {

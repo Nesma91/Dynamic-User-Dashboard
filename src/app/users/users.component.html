@@ -1,11 +1,46 @@
-<div class="fixed-grid has-3-cols mt-4">
-  <div class="grid">
-    <div class="cell" *ngFor="let user of users">
-      <app-user-item [item]="user"></app-user-item>
+<ng-container *ngIf="show; else spinner">
+  <div class="container mt-3">
+    <div class="fixed-grid has-3-cols mt-4">
+      <div class="grid">
+        <div class="cell is-col-start-2">
+          <div class="p-fluid">
+            <span class="p-input-icon-left">
+              <i class="pi pi-search"></i>
+              <input
+                type="text"
+                pInputText
+                placeholder="Search By User ID"
+                [(ngModel)]="searchValue"
+                (change)="searchChanged()"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="cell" *ngFor="let user of users">
+          <app-user-item [item]="user"></app-user-item>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <p-paginator
+        [rows]="2"
+        [totalRecords]="4"
+        (onPageChange)="paginate($event)"
+      ></p-paginator>
     </div>
   </div>
-</div>
+</ng-container>
 
-<div style="margin-top: 1rem; width: 50%; margin-left: 20rem">
-  <app-paginator></app-paginator>
-</div>
+<ng-template #spinner>
+  <p-progressSpinner
+    [style]="{ width: '150px', height: '150px', display: 'block' }"
+    styleClass="custom-spinner"
+    strokeWidth="8"
+    fill="var(--surface-ground)"
+    animationDuration=".5s"
+  ></p-progressSpinner>
+</ng-template>
